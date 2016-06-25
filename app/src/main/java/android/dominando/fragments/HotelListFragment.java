@@ -1,8 +1,11 @@
 package android.dominando.fragments;
 
+import android.app.Activity;
 import android.app.ListFragment;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,5 +46,22 @@ public class HotelListFragment extends ListFragment {
 
 
         return hoteis;
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+
+        Activity activity = getActivity();
+        if(activity instanceof AoClicarNoHotel){
+            Hotel hotel = (Hotel)l.getItemAtPosition(position);
+
+            AoClicarNoHotel listener = (AoClicarNoHotel)activity;
+            listener.clicouNoHotel(hotel);
+        }
+    }
+
+    public interface AoClicarNoHotel{
+        void clicouNoHotel(Hotel hotel);
     }
 }
