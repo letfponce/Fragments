@@ -3,8 +3,8 @@ apply plugin: 'com.android.application'
 android {
     defaultConfig {
         applicationId "android.dominando.fragments"
-        minSdkVersion 19
-        targetSdkVersion 21
+        minSdkVersion 15
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
